@@ -1,0 +1,14 @@
+body {
+  background-color: red;
+  height: 100vh;
+  overflow: hidden; }
+
+#__next {
+  height: 100vh; }
+
+footer {
+  position: absolute;
+  bottom: 0; }
+
+
+/*# sourceMappingURL=styles.chunk.css.map*/
