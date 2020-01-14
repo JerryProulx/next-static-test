@@ -15,8 +15,7 @@ const Index = (props) => {
 
     return(
         <div >
-            <p ref={myname}>My name is {props.name}</p>
-            <img ref={myimage} src="/logo.png" alt="my image" />
+            <p ref={myname} style={{color: '#fff'}}>My name is {props.name}</p>
         </div>
     )
 }

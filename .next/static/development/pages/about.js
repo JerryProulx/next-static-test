@@ -64,7 +64,7 @@ var About = function About() {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!*************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fjeremiproulx%2FDesktop%2FDEV%2FNEXTJS%2Ftest1%2Fpages%2Fabout.js ***!
   \*************************************************************************************************************************************************/
@@ -87,5 +87,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=about.js.map

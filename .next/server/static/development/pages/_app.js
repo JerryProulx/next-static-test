@@ -236,6 +236,123 @@ const Navbar = () => {
 
 /***/ }),
 
+/***/ "./components/scene.js":
+/*!*****************************!*\
+  !*** ./components/scene.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "three");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var three_orbitcontrols__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! three-orbitcontrols */ "three-orbitcontrols");
+/* harmony import */ var three_orbitcontrols__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(three_orbitcontrols__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var three_obj_loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! three-obj-loader */ "three-obj-loader");
+/* harmony import */ var three_obj_loader__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(three_obj_loader__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/components/scene.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+three_obj_loader__WEBPACK_IMPORTED_MODULE_3__(three__WEBPACK_IMPORTED_MODULE_1__); // var loader = new THREE.ObjectLoader();
+// loader.load(
+// 	// resource URL
+// 	"models/json/example.json",
+// 	// onLoad callback
+// 	// Here the loaded data is assumed to be an object
+// 	function ( obj ) {
+// 		// Add the loaded object to the scene
+// 		scene.add( obj );
+// 	},
+// 	// onProgress callback
+// 	function ( xhr ) {
+// 		console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+// 	},
+// 	// onError callback
+// 	function ( err ) {
+// 		console.error( 'An error happened' );
+// 	}
+// );
+
+class Scene extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(props) {
+    super(props);
+    this.threecanvas = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    this.THREE = three__WEBPACK_IMPORTED_MODULE_1__;
+  }
+
+  componentDidMount() {
+    var scene = new this.THREE.Scene();
+    var camera = new this.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+    var renderer = new this.THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    this.threecanvas.current.appendChild(renderer.domElement);
+    var geometry = new this.THREE.BoxGeometry(1, 1, 1);
+    var cube;
+    var object;
+    var controls = new three_orbitcontrols__WEBPACK_IMPORTED_MODULE_2___default.a(camera, renderer.domElement);
+    controls.target.set(0, 0, 0);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.25;
+    controls.enableZoom = true;
+    var loader = new this.THREE.TextureLoader();
+    let objLoader = new this.THREE.OBJLoader();
+    var ship_material = new three__WEBPACK_IMPORTED_MODULE_1__["MeshBasicMaterial"]({
+      color: 0x444444
+    }); // objLoader.setMaterials(materials)
+
+    objLoader.load('/hand.obj', obj => {
+      object = obj;
+      object.traverse(function (child) {
+        if (child instanceof three__WEBPACK_IMPORTED_MODULE_1__["Mesh"]) {
+          child.material = ship_material;
+        }
+      });
+      scene.add(object);
+    });
+    loader.load('/logo.png', function (texture) {
+      // in this example we create the material when the texture is loaded
+      var material = new three__WEBPACK_IMPORTED_MODULE_1__["MeshBasicMaterial"]({
+        map: texture
+      });
+      cube = new three__WEBPACK_IMPORTED_MODULE_1__["Mesh"](geometry, material);
+      scene.add(cube);
+      animate();
+    });
+
+    var animate = function () {
+      requestAnimationFrame(animate);
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      object.rotation.y -= 0.2;
+      renderer.render(scene, camera);
+    };
+  }
+
+  render() {
+    return __jsx("div", {
+      id: "three-container",
+      ref: this.threecanvas,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 96
+      },
+      __self: this
+    });
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Scene);
+
+/***/ }),
+
 /***/ "./data/site.json":
 /*!************************!*\
   !*** ./data/site.json ***!
@@ -2383,10 +2500,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_navbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/navbar */ "./components/navbar.js");
 /* harmony import */ var next_page_transitions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next-page-transitions */ "next-page-transitions");
 /* harmony import */ var next_page_transitions__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_page_transitions__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../styles/styles.scss */ "./styles/styles.scss");
-/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_styles_styles_scss__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _components_scene__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/scene */ "./components/scene.js");
+/* harmony import */ var react_no_ssr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-no-ssr */ "react-no-ssr");
+/* harmony import */ var react_no_ssr__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_no_ssr__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../styles/styles.scss */ "./styles/styles.scss");
+/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_styles_styles_scss__WEBPACK_IMPORTED_MODULE_12__);
 
 
 var _jsxFileName = "/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/pages/_app.js";
@@ -2401,32 +2521,27 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement;
 
 
 
+
+
 const site = __webpack_require__(/*! ../data/site.json */ "./data/site.json");
 
 const initState = __webpack_require__(/*! ../data/state.json */ "./data/state.json");
 
 class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
-  constructor(...args) {
-    super(...args);
+  constructor(props) {
+    super(props);
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", initState);
-  }
+  } // static async getInitialProps({ Component, router, ctx }) {
+  //   let pageProps = {}
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx)
+  //   }
+  //   return { pageProps }
+  // }
 
-  static async getInitialProps({
-    Component,
-    router,
-    ctx
-  }) {
-    let pageProps = {};
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return {
-      pageProps
-    };
-  }
+  componentDidMount() {}
 
   onExit() {
     console.log('enter');
@@ -2441,20 +2556,20 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_3__["Fragment"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 44
       },
       __self: this
     }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_4___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 45
       },
       __self: this
     }, __jsx("title", {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 46
       },
       __self: this
     }, site.title), __jsx("script", {
@@ -2464,7 +2579,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 47
       },
       __self: this
     }), __jsx("script", {
@@ -2474,7 +2589,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 48
       },
       __self: this
     }), __jsx("link", {
@@ -2485,7 +2600,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 50
       },
       __self: this
     }), __jsx("script", {
@@ -2495,21 +2610,33 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 51
       },
       __self: this
     })), __jsx(_components_navbar__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 53
       },
       __self: this
-    }), __jsx(next_page_transitions__WEBPACK_IMPORTED_MODULE_8__["PageTransition"], {
+    }), __jsx(react_no_ssr__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55
+      },
+      __self: this
+    }, __jsx(_components_scene__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 56
+      },
+      __self: this
+    })), __jsx(next_page_transitions__WEBPACK_IMPORTED_MODULE_8__["PageTransition"], {
       timeout: 500,
       classNames: "page-transition",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 59
       },
       __self: this
     }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, this.state, {
@@ -2517,16 +2644,16 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417" + " " + (this.state && this.state.className != null && this.state.className || pageProps && pageProps.className != null && pageProps.className || ""),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 60
       },
       __self: this
     }))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_2___default.a, {
       id: "1891429417",
       __self: this
-    }, ".page-transition-enter{opacity:0;}.page-transition-enter-active{opacity:1;-webkit-transition:opacity 300ms;transition:opacity 300ms;}.page-transition-exit{opacity:1;}.page-transition-exit-active{opacity:0;-webkit-transition:opacity 300ms;transition:opacity 300ms;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9qZXJlbWlwcm91bHgvRGVza3RvcC9ERVYvTkVYVEpTL3Rlc3QxL3BhZ2VzL19hcHAuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBOEMyQixBQUd1QixBQUdBLEFBSUEsQUFHQSxVQVRaLEFBRzJCLEFBSTNCLEFBRzJCLDBEQU4zQixBQU9BIiwiZmlsZSI6Ii9Vc2Vycy9qZXJlbWlwcm91bHgvRGVza3RvcC9ERVYvTkVYVEpTL3Rlc3QxL3BhZ2VzL19hcHAuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgRnJhZ21lbnQgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnO1xuaW1wb3J0IEFwcCBmcm9tICduZXh0L2FwcCc7XG5pbXBvcnQgRm9vdGVyIGZyb20gJy4uL2NvbXBvbmVudHMvZm9vdGVyJztcbmltcG9ydCBOYXZiYXIgZnJvbSAnLi4vY29tcG9uZW50cy9uYXZiYXInO1xuaW1wb3J0IHsgUGFnZVRyYW5zaXRpb24gfSBmcm9tICduZXh0LXBhZ2UtdHJhbnNpdGlvbnMnO1xuaW1wb3J0IHsgdXNlUm91dGVyIH0gZnJvbSAnbmV4dC9yb3V0ZXInO1xuaW1wb3J0IFwiLi4vc3R5bGVzL3N0eWxlcy5zY3NzXCJcblxuY29uc3Qgc2l0ZSA9IHJlcXVpcmUoJy4uL2RhdGEvc2l0ZS5qc29uJyk7XG5jb25zdCBpbml0U3RhdGUgPSByZXF1aXJlKCcuLi9kYXRhL3N0YXRlLmpzb24nKTtcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgTXlBcHAgZXh0ZW5kcyBBcHAge1xuICBzdGF0aWMgYXN5bmMgZ2V0SW5pdGlhbFByb3BzKHsgQ29tcG9uZW50LCByb3V0ZXIsIGN0eCB9KSB7XG4gICAgbGV0IHBhZ2VQcm9wcyA9IHt9XG5cbiAgICBpZiAoQ29tcG9uZW50LmdldEluaXRpYWxQcm9wcykge1xuICAgICAgcGFnZVByb3BzID0gYXdhaXQgQ29tcG9uZW50LmdldEluaXRpYWxQcm9wcyhjdHgpXG4gICAgfVxuXG4gICAgcmV0dXJuIHsgcGFnZVByb3BzIH1cbiAgfVxuXG4gIHN0YXRlID0gaW5pdFN0YXRlO1xuXG4gIG9uRXhpdCgpe1xuICAgIGNvbnNvbGUubG9nKCdlbnRlcicpXG4gIH1cblxuICByZW5kZXIgKCkge1xuICAgIGNvbnN0IHsgQ29tcG9uZW50LCBwYWdlUHJvcHMsIHJvdXRlciB9ID0gdGhpcy5wcm9wc1xuXG4gICAgcmV0dXJuIChcbiAgICAgIDxGcmFnbWVudD5cbiAgICAgICAgPEhlYWQ+XG4gICAgICAgICAgPHRpdGxlPntzaXRlLnRpdGxlfTwvdGl0bGU+XG4gICAgICAgICAgPHNjcmlwdCBzcmM9XCJodHRwczovL2NvZGUuanF1ZXJ5LmNvbS9qcXVlcnktMy40LjEuc2xpbS5taW4uanNcIiBpbnRlZ3JpdHk9XCJzaGEzODQtSjZxYTQ4NDlibEUyK3BvVDRXbnlLaHY1dlpGNVNyUG8waUVqd0J2S1U3aW1HRkFWMHd3ajF5WWZvUlNKb1orblwiIGNyb3NzT3JpZ2luPVwiYW5vbnltb3VzXCI+PC9zY3JpcHQ+XG4gICAgICAgICAgPHNjcmlwdCBzcmM9XCJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL3BvcHBlci5qc0AxLjE2LjAvZGlzdC91bWQvcG9wcGVyLm1pbi5qc1wiIGludGVncml0eT1cInNoYTM4NC1RNkU5Ukh2Ykl5WkZKb2Z0KzJtSmJIYUVXbGRsdkk5SU9ZeTVuM3pWOXp6VHRtSTNVa3NkUVJWdm94TWZvb0FvXCIgY3Jvc3NPcmlnaW49XCJhbm9ueW1vdXNcIj48L3NjcmlwdD5cblxuICAgICAgICAgIDxsaW5rIHJlbD1cInN0eWxlc2hlZXRcIiBocmVmPVwiaHR0cHM6Ly9zdGFja3BhdGguYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvNC40LjEvY3NzL2Jvb3RzdHJhcC5taW4uY3NzXCIgaW50ZWdyaXR5PVwic2hhMzg0LVZrb284eDRDR3NPMytIaHh2OFQvUTVQYVh0a0t0dTZ1ZzVUT2VOVjZnQmlGZVdQR0ZOOU11aE9mMjNROUlmamhcIiBjcm9zc09yaWdpbj1cImFub255bW91c1wiLz5cbiAgICAgICAgICA8c2NyaXB0IHNyYz1cImh0dHBzOi8vc3RhY2twYXRoLmJvb3RzdHJhcGNkbi5jb20vYm9vdHN0cmFwLzQuNC4xL2pzL2Jvb3RzdHJhcC5taW4uanNcIiBpbnRlZ3JpdHk9XCJzaGEzODQtd2ZTREYyRTUwWTJEMXVVZGowTzN1TUJKbmp1VUQ0SWg3WXdhWWQxaXFma3RqMFVvZDhHQ0V4bDNPZzhpZndCNlwiIGNyb3NzT3JpZ2luPVwiYW5vbnltb3VzXCI+PC9zY3JpcHQ+XG4gICAgICAgIDwvSGVhZD5cbiAgICAgICAgPE5hdmJhci8+XG4gICAgICAgIDxQYWdlVHJhbnNpdGlvbiB0aW1lb3V0PXs1MDB9IGNsYXNzTmFtZXM9XCJwYWdlLXRyYW5zaXRpb25cIj5cbiAgICAgICAgICA8Q29tcG9uZW50IHsuLi5wYWdlUHJvcHN9IHsuLi50aGlzLnN0YXRlfSBrZXk9e3JvdXRlci5yb3V0ZX0vPlxuICAgICAgICA8L1BhZ2VUcmFuc2l0aW9uPlxuICAgICAgICA8c3R5bGUganN4IGdsb2JhbD57YFxuICAgICAgICAgIC5wYWdlLXRyYW5zaXRpb24tZW50ZXIge1xuICAgICAgICAgICAgb3BhY2l0eTogMDtcbiAgICAgICAgICB9XG4gICAgICAgICAgLnBhZ2UtdHJhbnNpdGlvbi1lbnRlci1hY3RpdmUge1xuICAgICAgICAgICAgb3BhY2l0eTogMTtcbiAgICAgICAgICAgIHRyYW5zaXRpb246IG9wYWNpdHkgMzAwbXM7XG4gICAgICAgICAgfVxuICAgICAgICAgIC5wYWdlLXRyYW5zaXRpb24tZXhpdCB7XG4gICAgICAgICAgICBvcGFjaXR5OiAxO1xuICAgICAgICAgIH1cbiAgICAgICAgICAucGFnZS10cmFuc2l0aW9uLWV4aXQtYWN0aXZlIHtcbiAgICAgICAgICAgIG9wYWNpdHk6IDA7XG4gICAgICAgICAgICB0cmFuc2l0aW9uOiBvcGFjaXR5IDMwMG1zO1xuICAgICAgICAgIH1cbiAgICAgICAgYH08L3N0eWxlPlxuICAgICAgICA8Rm9vdGVyLz5cbiAgICAgIDwvRnJhZ21lbnQ+XG4gICAgKVxuICB9XG59XG4iXX0= */\n/*@ sourceURL=/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/pages/_app.js */"), __jsx(_components_footer__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, ".page-transition-enter{opacity:0;}.page-transition-enter-active{opacity:1;-webkit-transition:opacity 300ms;transition:opacity 300ms;}.page-transition-exit{opacity:1;}.page-transition-exit-active{opacity:0;-webkit-transition:opacity 300ms;transition:opacity 300ms;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9qZXJlbWlwcm91bHgvRGVza3RvcC9ERVYvTkVYVEpTL3Rlc3QxL3BhZ2VzL19hcHAuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBNkQyQixBQUd1QixBQUdBLEFBSUEsQUFHQSxVQVRaLEFBRzJCLEFBSTNCLEFBRzJCLDBEQU4zQixBQU9BIiwiZmlsZSI6Ii9Vc2Vycy9qZXJlbWlwcm91bHgvRGVza3RvcC9ERVYvTkVYVEpTL3Rlc3QxL3BhZ2VzL19hcHAuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgRnJhZ21lbnQgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnO1xuaW1wb3J0IEFwcCBmcm9tICduZXh0L2FwcCc7XG5pbXBvcnQgRm9vdGVyIGZyb20gJy4uL2NvbXBvbmVudHMvZm9vdGVyJztcbmltcG9ydCBOYXZiYXIgZnJvbSAnLi4vY29tcG9uZW50cy9uYXZiYXInO1xuaW1wb3J0IHsgUGFnZVRyYW5zaXRpb24gfSBmcm9tICduZXh0LXBhZ2UtdHJhbnNpdGlvbnMnO1xuaW1wb3J0IFNjZW5lIGZyb20gJy4uL2NvbXBvbmVudHMvc2NlbmUnO1xuaW1wb3J0IE5vU1NSIGZyb20gJ3JlYWN0LW5vLXNzcic7XG5pbXBvcnQgeyB1c2VSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XG5pbXBvcnQgXCIuLi9zdHlsZXMvc3R5bGVzLnNjc3NcIlxuXG5jb25zdCBzaXRlID0gcmVxdWlyZSgnLi4vZGF0YS9zaXRlLmpzb24nKTtcbmNvbnN0IGluaXRTdGF0ZSA9IHJlcXVpcmUoJy4uL2RhdGEvc3RhdGUuanNvbicpO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBNeUFwcCBleHRlbmRzIEFwcCB7XG4gIGNvbnN0cnVjdG9yKHByb3BzKXtcbiAgICBzdXBlcihwcm9wcyk7XG4gIH1cblxuICAvLyBzdGF0aWMgYXN5bmMgZ2V0SW5pdGlhbFByb3BzKHsgQ29tcG9uZW50LCByb3V0ZXIsIGN0eCB9KSB7XG4gIC8vICAgbGV0IHBhZ2VQcm9wcyA9IHt9XG5cbiAgLy8gICBpZiAoQ29tcG9uZW50LmdldEluaXRpYWxQcm9wcykge1xuICAvLyAgICAgcGFnZVByb3BzID0gYXdhaXQgQ29tcG9uZW50LmdldEluaXRpYWxQcm9wcyhjdHgpXG4gIC8vICAgfVxuXG4gIC8vICAgcmV0dXJuIHsgcGFnZVByb3BzIH1cbiAgLy8gfVxuXG4gIHN0YXRlID0gaW5pdFN0YXRlO1xuXG4gIGNvbXBvbmVudERpZE1vdW50KCl7XG5cbiAgfVxuXG4gIG9uRXhpdCgpe1xuICAgIGNvbnNvbGUubG9nKCdlbnRlcicpXG4gIH1cblxuICByZW5kZXIgKCkge1xuICAgIGNvbnN0IHsgQ29tcG9uZW50LCBwYWdlUHJvcHMsIHJvdXRlciB9ID0gdGhpcy5wcm9wc1xuXG4gICAgcmV0dXJuIChcbiAgICAgIDxGcmFnbWVudD5cbiAgICAgICAgPEhlYWQ+XG4gICAgICAgICAgPHRpdGxlPntzaXRlLnRpdGxlfTwvdGl0bGU+XG4gICAgICAgICAgPHNjcmlwdCBzcmM9XCJodHRwczovL2NvZGUuanF1ZXJ5LmNvbS9qcXVlcnktMy40LjEuc2xpbS5taW4uanNcIiBpbnRlZ3JpdHk9XCJzaGEzODQtSjZxYTQ4NDlibEUyK3BvVDRXbnlLaHY1dlpGNVNyUG8waUVqd0J2S1U3aW1HRkFWMHd3ajF5WWZvUlNKb1orblwiIGNyb3NzT3JpZ2luPVwiYW5vbnltb3VzXCI+PC9zY3JpcHQ+XG4gICAgICAgICAgPHNjcmlwdCBzcmM9XCJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL3BvcHBlci5qc0AxLjE2LjAvZGlzdC91bWQvcG9wcGVyLm1pbi5qc1wiIGludGVncml0eT1cInNoYTM4NC1RNkU5Ukh2Ykl5WkZKb2Z0KzJtSmJIYUVXbGRsdkk5SU9ZeTVuM3pWOXp6VHRtSTNVa3NkUVJWdm94TWZvb0FvXCIgY3Jvc3NPcmlnaW49XCJhbm9ueW1vdXNcIj48L3NjcmlwdD5cblxuICAgICAgICAgIDxsaW5rIHJlbD1cInN0eWxlc2hlZXRcIiBocmVmPVwiaHR0cHM6Ly9zdGFja3BhdGguYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvNC40LjEvY3NzL2Jvb3RzdHJhcC5taW4uY3NzXCIgaW50ZWdyaXR5PVwic2hhMzg0LVZrb284eDRDR3NPMytIaHh2OFQvUTVQYVh0a0t0dTZ1ZzVUT2VOVjZnQmlGZVdQR0ZOOU11aE9mMjNROUlmamhcIiBjcm9zc09yaWdpbj1cImFub255bW91c1wiLz5cbiAgICAgICAgICA8c2NyaXB0IHNyYz1cImh0dHBzOi8vc3RhY2twYXRoLmJvb3RzdHJhcGNkbi5jb20vYm9vdHN0cmFwLzQuNC4xL2pzL2Jvb3RzdHJhcC5taW4uanNcIiBpbnRlZ3JpdHk9XCJzaGEzODQtd2ZTREYyRTUwWTJEMXVVZGowTzN1TUJKbmp1VUQ0SWg3WXdhWWQxaXFma3RqMFVvZDhHQ0V4bDNPZzhpZndCNlwiIGNyb3NzT3JpZ2luPVwiYW5vbnltb3VzXCI+PC9zY3JpcHQ+XG4gICAgICAgIDwvSGVhZD5cbiAgICAgICAgPE5hdmJhci8+XG5cbiAgICAgICAgPE5vU1NSPlxuICAgICAgICAgIDxTY2VuZS8+XG4gICAgICAgIDwvTm9TU1I+XG5cbiAgICAgICAgPFBhZ2VUcmFuc2l0aW9uIHRpbWVvdXQ9ezUwMH0gY2xhc3NOYW1lcz1cInBhZ2UtdHJhbnNpdGlvblwiPlxuICAgICAgICAgIDxDb21wb25lbnQgey4uLnBhZ2VQcm9wc30gey4uLnRoaXMuc3RhdGV9IGtleT17cm91dGVyLnJvdXRlfS8+XG4gICAgICAgIDwvUGFnZVRyYW5zaXRpb24+XG4gICAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXG4gICAgICAgICAgLnBhZ2UtdHJhbnNpdGlvbi1lbnRlciB7XG4gICAgICAgICAgICBvcGFjaXR5OiAwO1xuICAgICAgICAgIH1cbiAgICAgICAgICAucGFnZS10cmFuc2l0aW9uLWVudGVyLWFjdGl2ZSB7XG4gICAgICAgICAgICBvcGFjaXR5OiAxO1xuICAgICAgICAgICAgdHJhbnNpdGlvbjogb3BhY2l0eSAzMDBtcztcbiAgICAgICAgICB9XG4gICAgICAgICAgLnBhZ2UtdHJhbnNpdGlvbi1leGl0IHtcbiAgICAgICAgICAgIG9wYWNpdHk6IDE7XG4gICAgICAgICAgfVxuICAgICAgICAgIC5wYWdlLXRyYW5zaXRpb24tZXhpdC1hY3RpdmUge1xuICAgICAgICAgICAgb3BhY2l0eTogMDtcbiAgICAgICAgICAgIHRyYW5zaXRpb246IG9wYWNpdHkgMzAwbXM7XG4gICAgICAgICAgfVxuICAgICAgICBgfTwvc3R5bGU+XG4gICAgICAgIDxGb290ZXIvPlxuICAgICAgPC9GcmFnbWVudD5cbiAgICApXG4gIH1cbn1cbiJdfQ== */\n/*@ sourceURL=/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/pages/_app.js */"), __jsx(_components_footer__WEBPACK_IMPORTED_MODULE_6__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 78
       },
       __self: this
     }));
@@ -2746,6 +2873,17 @@ module.exports = require("react-is");
 
 /***/ }),
 
+/***/ "react-no-ssr":
+/*!*******************************!*\
+  !*** external "react-no-ssr" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-no-ssr");
+
+/***/ }),
+
 /***/ "styled-jsx/style":
 /*!***********************************!*\
   !*** external "styled-jsx/style" ***!
@@ -2754,6 +2892,39 @@ module.exports = require("react-is");
 /***/ (function(module, exports) {
 
 module.exports = require("styled-jsx/style");
+
+/***/ }),
+
+/***/ "three":
+/*!************************!*\
+  !*** external "three" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("three");
+
+/***/ }),
+
+/***/ "three-obj-loader":
+/*!***********************************!*\
+  !*** external "three-obj-loader" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("three-obj-loader");
+
+/***/ }),
+
+/***/ "three-orbitcontrols":
+/*!**************************************!*\
+  !*** external "three-orbitcontrols" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("three-orbitcontrols");
 
 /***/ }),
 

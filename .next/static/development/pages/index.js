@@ -5470,28 +5470,22 @@ var Index = function Index(props) {
     __self: this
   }, __jsx("p", {
     ref: myname,
+    style: {
+      color: '#fff'
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18
     },
     __self: this
-  }, "My name is ", props.name), __jsx("img", {
-    ref: myimage,
-    src: "/logo.png",
-    alt: "my image",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19
-    },
-    __self: this
-  }));
+  }, "My name is ", props.name));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
 
-/***/ 3:
+/***/ 1:
 /*!********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fjeremiproulx%2FDesktop%2FDEV%2FNEXTJS%2Ftest1%2Fpages%2Findex.js ***!
   \********************************************************************************************************************************************/
@@ -5514,5 +5508,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

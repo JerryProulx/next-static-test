@@ -4,6 +4,8 @@ import App from 'next/app';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
 import { PageTransition } from 'next-page-transitions';
+import Scene from '../components/scene';
+import NoSSR from 'react-no-ssr';
 import { useRouter } from 'next/router';
 import "../styles/styles.scss"
 
@@ -11,17 +13,25 @@ const site = require('../data/site.json');
 const initState = require('../data/state.json');
 
 export default class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
-    let pageProps = {}
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
-
-    return { pageProps }
+  constructor(props){
+    super(props);
   }
 
+  // static async getInitialProps({ Component, router, ctx }) {
+  //   let pageProps = {}
+
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx)
+  //   }
+
+  //   return { pageProps }
+  // }
+
   state = initState;
+
+  componentDidMount(){
+
+  }
 
   onExit(){
     console.log('enter')
@@ -41,6 +51,11 @@ export default class MyApp extends App {
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossOrigin="anonymous"></script>
         </Head>
         <Navbar/>
+
+        <NoSSR>
+          <Scene/>
+        </NoSSR>
+
         <PageTransition timeout={500} classNames="page-transition">
           <Component {...pageProps} {...this.state} key={router.route}/>
         </PageTransition>

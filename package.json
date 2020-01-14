@@ -19,6 +19,11 @@
     "next-page-transitions": "^1.0.0-beta.2",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-no-ssr": "^1.1.0",
+    "three": "^0.112.1",
+    "three-obj-loader": "^1.1.3",
+    "three-obj-mtl-loader": "^1.0.3",
+    "three-orbitcontrols": "^2.110.3"
   }
 }

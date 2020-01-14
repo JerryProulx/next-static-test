@@ -1,5 +1,5 @@
 body {
-  background-color: red;
+  background-color: #ddd;
   height: 100vh;
   overflow: hidden; }
 
@@ -9,6 +9,15 @@ body {
 footer {
   position: absolute;
   bottom: 0; }
+
+#three-container {
+  position: absolute;
+  top: 0; }
+
+nav {
+  position: absolute;
+  top: 0;
+  z-index: 10; }
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/
