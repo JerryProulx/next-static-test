@@ -4,7 +4,10 @@ import App from 'next/app';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
 import { PageTransition } from 'next-page-transitions';
-import Scene from '../components/scene';
+
+import { Canvas } from 'react-three-fiber'
+import Three from '../components/three';
+
 import NoSSR from 'react-no-ssr';
 import { useRouter } from 'next/router';
 import "../styles/styles.scss"
@@ -53,7 +56,7 @@ export default class MyApp extends App {
         <Navbar/>
 
         <NoSSR>
-          <Scene/>
+          <Three />
         </NoSSR>
 
         <PageTransition timeout={500} classNames="page-transition">

@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/about.js"],{
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2FUsers%2Fjeremiproulx%2FDesktop%2FDEV%2FNEXTJS%2Ftest1%2Fpages%2Fabout.js!./":
-/*!*********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2FUsers%2Fjeremiproulx%2FDesktop%2FDEV%2FNEXTJS%2Ftest1%2Fpages%2Fabout.js ***!
-  \*********************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2FUsers%2Fproulxj%2FDesktop%2FProjects%2Fnext-static-test%2Fpages%2Fabout.js!./":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2FUsers%2Fproulxj%2FDesktop%2FProjects%2Fnext-static-test%2Fpages%2Fabout.js ***!
+  \***********************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -45,7 +45,7 @@ module.exports = (__webpack_require__(/*! dll-reference dll_5f137288facb1107b491
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/pages/about.js";
+var _jsxFileName = "/Users/proulxj/Desktop/Projects/next-static-test/pages/about.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -64,14 +64,14 @@ var About = function About() {
 
 /***/ }),
 
-/***/ 2:
-/*!*************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fjeremiproulx%2FDesktop%2FDEV%2FNEXTJS%2Ftest1%2Fpages%2Fabout.js ***!
-  \*************************************************************************************************************************************************/
+/***/ 1:
+/*!***************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fproulxj%2FDesktop%2FProjects%2Fnext-static-test%2Fpages%2Fabout.js ***!
+  \***************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fjeremiproulx%2FDesktop%2FDEV%2FNEXTJS%2Ftest1%2Fpages%2Fabout.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2FUsers%2Fjeremiproulx%2FDesktop%2FDEV%2FNEXTJS%2Ftest1%2Fpages%2Fabout.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fproulxj%2FDesktop%2FProjects%2Fnext-static-test%2Fpages%2Fabout.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2FUsers%2Fproulxj%2FDesktop%2FProjects%2Fnext-static-test%2Fpages%2Fabout.js!./");
 
 
 /***/ }),
@@ -87,5 +87,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=about.js.map

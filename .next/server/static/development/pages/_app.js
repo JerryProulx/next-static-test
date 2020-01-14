@@ -104,7 +104,7 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/components/footer.js";
+var _jsxFileName = "/Users/proulxj/Desktop/Projects/next-static-test/components/footer.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -137,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/components/navbar.js";
+var _jsxFileName = "/Users/proulxj/Desktop/Projects/next-static-test/components/navbar.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -236,9 +236,9 @@ const Navbar = () => {
 
 /***/ }),
 
-/***/ "./components/scene.js":
+/***/ "./components/thing.js":
 /*!*****************************!*\
-  !*** ./components/scene.js ***!
+  !*** ./components/thing.js ***!
   \*****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -247,109 +247,92 @@ const Navbar = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "three");
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var three_orbitcontrols__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! three-orbitcontrols */ "three-orbitcontrols");
-/* harmony import */ var three_orbitcontrols__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(three_orbitcontrols__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var three_obj_loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! three-obj-loader */ "three-obj-loader");
-/* harmony import */ var three_obj_loader__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(three_obj_loader__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/components/scene.js";
+/* harmony import */ var react_three_fiber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-three-fiber */ "react-three-fiber");
+/* harmony import */ var react_three_fiber__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_three_fiber__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/proulxj/Desktop/Projects/next-static-test/components/thing.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+function Thing() {
+  const ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+  Object(react_three_fiber__WEBPACK_IMPORTED_MODULE_1__["useFrame"])(() => ref.current.rotation.x = ref.current.rotation.y += 0.01);
+  return __jsx("mesh", {
+    ref: ref,
+    onClick: e => console.log('click'),
+    onPointerOver: e => console.log('hover'),
+    onPointerOut: e => console.log('unhover'),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, __jsx("boxBufferGeometry", {
+    attach: "geometry",
+    args: [1, 1, 1],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
+  }), __jsx("meshNormalMaterial", {
+    attach: "material",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Thing);
+
+/***/ }),
+
+/***/ "./components/three.js":
+/*!*****************************!*\
+  !*** ./components/three.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_three_fiber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-three-fiber */ "react-three-fiber");
+/* harmony import */ var react_three_fiber__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_three_fiber__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _thing__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./thing */ "./components/thing.js");
+var _jsxFileName = "/Users/proulxj/Desktop/Projects/next-static-test/components/three.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
-three_obj_loader__WEBPACK_IMPORTED_MODULE_3__(three__WEBPACK_IMPORTED_MODULE_1__); // var loader = new THREE.ObjectLoader();
-// loader.load(
-// 	// resource URL
-// 	"models/json/example.json",
-// 	// onLoad callback
-// 	// Here the loaded data is assumed to be an object
-// 	function ( obj ) {
-// 		// Add the loaded object to the scene
-// 		scene.add( obj );
-// 	},
-// 	// onProgress callback
-// 	function ( xhr ) {
-// 		console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
-// 	},
-// 	// onError callback
-// 	function ( err ) {
-// 		console.error( 'An error happened' );
-// 	}
-// );
-
-class Scene extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
-  constructor(props) {
-    super(props);
-    this.threecanvas = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
-    this.THREE = three__WEBPACK_IMPORTED_MODULE_1__;
-  }
-
-  componentDidMount() {
-    var scene = new this.THREE.Scene();
-    var camera = new this.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 5;
-    var renderer = new this.THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    this.threecanvas.current.appendChild(renderer.domElement);
-    var geometry = new this.THREE.BoxGeometry(1, 1, 1);
-    var cube;
-    var object;
-    var controls = new three_orbitcontrols__WEBPACK_IMPORTED_MODULE_2___default.a(camera, renderer.domElement);
-    controls.target.set(0, 0, 0);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.25;
-    controls.enableZoom = true;
-    var loader = new this.THREE.TextureLoader();
-    let objLoader = new this.THREE.OBJLoader();
-    var ship_material = new three__WEBPACK_IMPORTED_MODULE_1__["MeshBasicMaterial"]({
-      color: 0x444444
-    }); // objLoader.setMaterials(materials)
-
-    objLoader.load('/hand.obj', obj => {
-      object = obj;
-      object.traverse(function (child) {
-        if (child instanceof three__WEBPACK_IMPORTED_MODULE_1__["Mesh"]) {
-          child.material = ship_material;
-        }
-      });
-      scene.add(object);
-    });
-    loader.load('/logo.png', function (texture) {
-      // in this example we create the material when the texture is loaded
-      var material = new three__WEBPACK_IMPORTED_MODULE_1__["MeshBasicMaterial"]({
-        map: texture
-      });
-      cube = new three__WEBPACK_IMPORTED_MODULE_1__["Mesh"](geometry, material);
-      scene.add(cube);
-      animate();
-    });
-
-    var animate = function () {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      object.rotation.y -= 0.2;
-      renderer.render(scene, camera);
-    };
-  }
-
-  render() {
-    return __jsx("div", {
-      id: "three-container",
-      ref: this.threecanvas,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 96
-      },
-      __self: this
-    });
-  }
-
+function Three() {
+  return __jsx("div", {
+    className: "canvas",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, __jsx(react_three_fiber__WEBPACK_IMPORTED_MODULE_1__["Canvas"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, __jsx(_thing__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  })));
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Scene);
+/* harmony default export */ __webpack_exports__["default"] = (Three);
 
 /***/ }),
 
@@ -2500,18 +2483,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_navbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/navbar */ "./components/navbar.js");
 /* harmony import */ var next_page_transitions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next-page-transitions */ "next-page-transitions");
 /* harmony import */ var next_page_transitions__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_page_transitions__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _components_scene__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/scene */ "./components/scene.js");
-/* harmony import */ var react_no_ssr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-no-ssr */ "react-no-ssr");
-/* harmony import */ var react_no_ssr__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_no_ssr__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../styles/styles.scss */ "./styles/styles.scss");
-/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_styles_styles_scss__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var react_three_fiber__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-three-fiber */ "react-three-fiber");
+/* harmony import */ var react_three_fiber__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_three_fiber__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _components_three__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/three */ "./components/three.js");
+/* harmony import */ var react_no_ssr__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-no-ssr */ "react-no-ssr");
+/* harmony import */ var react_no_ssr__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_no_ssr__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../styles/styles.scss */ "./styles/styles.scss");
+/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_styles_styles_scss__WEBPACK_IMPORTED_MODULE_13__);
 
 
-var _jsxFileName = "/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/pages/_app.js";
+var _jsxFileName = "/Users/proulxj/Desktop/Projects/next-static-test/pages/_app.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement;
+
 
 
 
@@ -2556,20 +2542,20 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_3__["Fragment"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 47
       },
       __self: this
     }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_4___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 48
       },
       __self: this
     }, __jsx("title", {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 49
       },
       __self: this
     }, site.title), __jsx("script", {
@@ -2579,7 +2565,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 50
       },
       __self: this
     }), __jsx("script", {
@@ -2589,7 +2575,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 51
       },
       __self: this
     }), __jsx("link", {
@@ -2600,7 +2586,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 53
       },
       __self: this
     }), __jsx("script", {
@@ -2610,25 +2596,25 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 54
       },
       __self: this
     })), __jsx(_components_navbar__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
-      },
-      __self: this
-    }), __jsx(react_no_ssr__WEBPACK_IMPORTED_MODULE_10___default.a, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    }, __jsx(_components_scene__WEBPACK_IMPORTED_MODULE_9__["default"], {
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 56
+      },
+      __self: this
+    }), __jsx(react_no_ssr__WEBPACK_IMPORTED_MODULE_11___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58
+      },
+      __self: this
+    }, __jsx(_components_three__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 59
       },
       __self: this
     })), __jsx(next_page_transitions__WEBPACK_IMPORTED_MODULE_8__["PageTransition"], {
@@ -2636,7 +2622,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       classNames: "page-transition",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 62
       },
       __self: this
     }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, this.state, {
@@ -2644,16 +2630,16 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_5___default.a {
       className: "jsx-1891429417" + " " + (this.state && this.state.className != null && this.state.className || pageProps && pageProps.className != null && pageProps.className || ""),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60
+        lineNumber: 63
       },
       __self: this
     }))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_2___default.a, {
       id: "1891429417",
       __self: this
-    }, ".page-transition-enter{opacity:0;}.page-transition-enter-active{opacity:1;-webkit-transition:opacity 300ms;transition:opacity 300ms;}.page-transition-exit{opacity:1;}.page-transition-exit-active{opacity:0;-webkit-transition:opacity 300ms;transition:opacity 300ms;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9qZXJlbWlwcm91bHgvRGVza3RvcC9ERVYvTkVYVEpTL3Rlc3QxL3BhZ2VzL19hcHAuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBNkQyQixBQUd1QixBQUdBLEFBSUEsQUFHQSxVQVRaLEFBRzJCLEFBSTNCLEFBRzJCLDBEQU4zQixBQU9BIiwiZmlsZSI6Ii9Vc2Vycy9qZXJlbWlwcm91bHgvRGVza3RvcC9ERVYvTkVYVEpTL3Rlc3QxL3BhZ2VzL19hcHAuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgRnJhZ21lbnQgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnO1xuaW1wb3J0IEFwcCBmcm9tICduZXh0L2FwcCc7XG5pbXBvcnQgRm9vdGVyIGZyb20gJy4uL2NvbXBvbmVudHMvZm9vdGVyJztcbmltcG9ydCBOYXZiYXIgZnJvbSAnLi4vY29tcG9uZW50cy9uYXZiYXInO1xuaW1wb3J0IHsgUGFnZVRyYW5zaXRpb24gfSBmcm9tICduZXh0LXBhZ2UtdHJhbnNpdGlvbnMnO1xuaW1wb3J0IFNjZW5lIGZyb20gJy4uL2NvbXBvbmVudHMvc2NlbmUnO1xuaW1wb3J0IE5vU1NSIGZyb20gJ3JlYWN0LW5vLXNzcic7XG5pbXBvcnQgeyB1c2VSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XG5pbXBvcnQgXCIuLi9zdHlsZXMvc3R5bGVzLnNjc3NcIlxuXG5jb25zdCBzaXRlID0gcmVxdWlyZSgnLi4vZGF0YS9zaXRlLmpzb24nKTtcbmNvbnN0IGluaXRTdGF0ZSA9IHJlcXVpcmUoJy4uL2RhdGEvc3RhdGUuanNvbicpO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBNeUFwcCBleHRlbmRzIEFwcCB7XG4gIGNvbnN0cnVjdG9yKHByb3BzKXtcbiAgICBzdXBlcihwcm9wcyk7XG4gIH1cblxuICAvLyBzdGF0aWMgYXN5bmMgZ2V0SW5pdGlhbFByb3BzKHsgQ29tcG9uZW50LCByb3V0ZXIsIGN0eCB9KSB7XG4gIC8vICAgbGV0IHBhZ2VQcm9wcyA9IHt9XG5cbiAgLy8gICBpZiAoQ29tcG9uZW50LmdldEluaXRpYWxQcm9wcykge1xuICAvLyAgICAgcGFnZVByb3BzID0gYXdhaXQgQ29tcG9uZW50LmdldEluaXRpYWxQcm9wcyhjdHgpXG4gIC8vICAgfVxuXG4gIC8vICAgcmV0dXJuIHsgcGFnZVByb3BzIH1cbiAgLy8gfVxuXG4gIHN0YXRlID0gaW5pdFN0YXRlO1xuXG4gIGNvbXBvbmVudERpZE1vdW50KCl7XG5cbiAgfVxuXG4gIG9uRXhpdCgpe1xuICAgIGNvbnNvbGUubG9nKCdlbnRlcicpXG4gIH1cblxuICByZW5kZXIgKCkge1xuICAgIGNvbnN0IHsgQ29tcG9uZW50LCBwYWdlUHJvcHMsIHJvdXRlciB9ID0gdGhpcy5wcm9wc1xuXG4gICAgcmV0dXJuIChcbiAgICAgIDxGcmFnbWVudD5cbiAgICAgICAgPEhlYWQ+XG4gICAgICAgICAgPHRpdGxlPntzaXRlLnRpdGxlfTwvdGl0bGU+XG4gICAgICAgICAgPHNjcmlwdCBzcmM9XCJodHRwczovL2NvZGUuanF1ZXJ5LmNvbS9qcXVlcnktMy40LjEuc2xpbS5taW4uanNcIiBpbnRlZ3JpdHk9XCJzaGEzODQtSjZxYTQ4NDlibEUyK3BvVDRXbnlLaHY1dlpGNVNyUG8waUVqd0J2S1U3aW1HRkFWMHd3ajF5WWZvUlNKb1orblwiIGNyb3NzT3JpZ2luPVwiYW5vbnltb3VzXCI+PC9zY3JpcHQ+XG4gICAgICAgICAgPHNjcmlwdCBzcmM9XCJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL3BvcHBlci5qc0AxLjE2LjAvZGlzdC91bWQvcG9wcGVyLm1pbi5qc1wiIGludGVncml0eT1cInNoYTM4NC1RNkU5Ukh2Ykl5WkZKb2Z0KzJtSmJIYUVXbGRsdkk5SU9ZeTVuM3pWOXp6VHRtSTNVa3NkUVJWdm94TWZvb0FvXCIgY3Jvc3NPcmlnaW49XCJhbm9ueW1vdXNcIj48L3NjcmlwdD5cblxuICAgICAgICAgIDxsaW5rIHJlbD1cInN0eWxlc2hlZXRcIiBocmVmPVwiaHR0cHM6Ly9zdGFja3BhdGguYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvNC40LjEvY3NzL2Jvb3RzdHJhcC5taW4uY3NzXCIgaW50ZWdyaXR5PVwic2hhMzg0LVZrb284eDRDR3NPMytIaHh2OFQvUTVQYVh0a0t0dTZ1ZzVUT2VOVjZnQmlGZVdQR0ZOOU11aE9mMjNROUlmamhcIiBjcm9zc09yaWdpbj1cImFub255bW91c1wiLz5cbiAgICAgICAgICA8c2NyaXB0IHNyYz1cImh0dHBzOi8vc3RhY2twYXRoLmJvb3RzdHJhcGNkbi5jb20vYm9vdHN0cmFwLzQuNC4xL2pzL2Jvb3RzdHJhcC5taW4uanNcIiBpbnRlZ3JpdHk9XCJzaGEzODQtd2ZTREYyRTUwWTJEMXVVZGowTzN1TUJKbmp1VUQ0SWg3WXdhWWQxaXFma3RqMFVvZDhHQ0V4bDNPZzhpZndCNlwiIGNyb3NzT3JpZ2luPVwiYW5vbnltb3VzXCI+PC9zY3JpcHQ+XG4gICAgICAgIDwvSGVhZD5cbiAgICAgICAgPE5hdmJhci8+XG5cbiAgICAgICAgPE5vU1NSPlxuICAgICAgICAgIDxTY2VuZS8+XG4gICAgICAgIDwvTm9TU1I+XG5cbiAgICAgICAgPFBhZ2VUcmFuc2l0aW9uIHRpbWVvdXQ9ezUwMH0gY2xhc3NOYW1lcz1cInBhZ2UtdHJhbnNpdGlvblwiPlxuICAgICAgICAgIDxDb21wb25lbnQgey4uLnBhZ2VQcm9wc30gey4uLnRoaXMuc3RhdGV9IGtleT17cm91dGVyLnJvdXRlfS8+XG4gICAgICAgIDwvUGFnZVRyYW5zaXRpb24+XG4gICAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXG4gICAgICAgICAgLnBhZ2UtdHJhbnNpdGlvbi1lbnRlciB7XG4gICAgICAgICAgICBvcGFjaXR5OiAwO1xuICAgICAgICAgIH1cbiAgICAgICAgICAucGFnZS10cmFuc2l0aW9uLWVudGVyLWFjdGl2ZSB7XG4gICAgICAgICAgICBvcGFjaXR5OiAxO1xuICAgICAgICAgICAgdHJhbnNpdGlvbjogb3BhY2l0eSAzMDBtcztcbiAgICAgICAgICB9XG4gICAgICAgICAgLnBhZ2UtdHJhbnNpdGlvbi1leGl0IHtcbiAgICAgICAgICAgIG9wYWNpdHk6IDE7XG4gICAgICAgICAgfVxuICAgICAgICAgIC5wYWdlLXRyYW5zaXRpb24tZXhpdC1hY3RpdmUge1xuICAgICAgICAgICAgb3BhY2l0eTogMDtcbiAgICAgICAgICAgIHRyYW5zaXRpb246IG9wYWNpdHkgMzAwbXM7XG4gICAgICAgICAgfVxuICAgICAgICBgfTwvc3R5bGU+XG4gICAgICAgIDxGb290ZXIvPlxuICAgICAgPC9GcmFnbWVudD5cbiAgICApXG4gIH1cbn1cbiJdfQ== */\n/*@ sourceURL=/Users/jeremiproulx/Desktop/DEV/NEXTJS/test1/pages/_app.js */"), __jsx(_components_footer__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, ".page-transition-enter{opacity:0;}.page-transition-enter-active{opacity:1;-webkit-transition:opacity 300ms;transition:opacity 300ms;}.page-transition-exit{opacity:1;}.page-transition-exit-active{opacity:0;-webkit-transition:opacity 300ms;transition:opacity 300ms;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9wcm91bHhqL0Rlc2t0b3AvUHJvamVjdHMvbmV4dC1zdGF0aWMtdGVzdC9wYWdlcy9fYXBwLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQWdFMkIsQUFHdUIsQUFHQSxBQUlBLEFBR0EsVUFUWixBQUcyQixBQUkzQixBQUcyQiwwREFOM0IsQUFPQSIsImZpbGUiOiIvVXNlcnMvcHJvdWx4ai9EZXNrdG9wL1Byb2plY3RzL25leHQtc3RhdGljLXRlc3QvcGFnZXMvX2FwcC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyBGcmFnbWVudCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBIZWFkIGZyb20gJ25leHQvaGVhZCc7XG5pbXBvcnQgQXBwIGZyb20gJ25leHQvYXBwJztcbmltcG9ydCBGb290ZXIgZnJvbSAnLi4vY29tcG9uZW50cy9mb290ZXInO1xuaW1wb3J0IE5hdmJhciBmcm9tICcuLi9jb21wb25lbnRzL25hdmJhcic7XG5pbXBvcnQgeyBQYWdlVHJhbnNpdGlvbiB9IGZyb20gJ25leHQtcGFnZS10cmFuc2l0aW9ucyc7XG5cbmltcG9ydCB7IENhbnZhcyB9IGZyb20gJ3JlYWN0LXRocmVlLWZpYmVyJ1xuaW1wb3J0IFRocmVlIGZyb20gJy4uL2NvbXBvbmVudHMvdGhyZWUnO1xuXG5pbXBvcnQgTm9TU1IgZnJvbSAncmVhY3Qtbm8tc3NyJztcbmltcG9ydCB7IHVzZVJvdXRlciB9IGZyb20gJ25leHQvcm91dGVyJztcbmltcG9ydCBcIi4uL3N0eWxlcy9zdHlsZXMuc2Nzc1wiXG5cbmNvbnN0IHNpdGUgPSByZXF1aXJlKCcuLi9kYXRhL3NpdGUuanNvbicpO1xuY29uc3QgaW5pdFN0YXRlID0gcmVxdWlyZSgnLi4vZGF0YS9zdGF0ZS5qc29uJyk7XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIE15QXBwIGV4dGVuZHMgQXBwIHtcbiAgY29uc3RydWN0b3IocHJvcHMpe1xuICAgIHN1cGVyKHByb3BzKTtcbiAgfVxuXG4gIC8vIHN0YXRpYyBhc3luYyBnZXRJbml0aWFsUHJvcHMoeyBDb21wb25lbnQsIHJvdXRlciwgY3R4IH0pIHtcbiAgLy8gICBsZXQgcGFnZVByb3BzID0ge31cblxuICAvLyAgIGlmIChDb21wb25lbnQuZ2V0SW5pdGlhbFByb3BzKSB7XG4gIC8vICAgICBwYWdlUHJvcHMgPSBhd2FpdCBDb21wb25lbnQuZ2V0SW5pdGlhbFByb3BzKGN0eClcbiAgLy8gICB9XG5cbiAgLy8gICByZXR1cm4geyBwYWdlUHJvcHMgfVxuICAvLyB9XG5cbiAgc3RhdGUgPSBpbml0U3RhdGU7XG5cbiAgY29tcG9uZW50RGlkTW91bnQoKXtcblxuICB9XG5cbiAgb25FeGl0KCl7XG4gICAgY29uc29sZS5sb2coJ2VudGVyJylcbiAgfVxuXG4gIHJlbmRlciAoKSB7XG4gICAgY29uc3QgeyBDb21wb25lbnQsIHBhZ2VQcm9wcywgcm91dGVyIH0gPSB0aGlzLnByb3BzXG5cbiAgICByZXR1cm4gKFxuICAgICAgPEZyYWdtZW50PlxuICAgICAgICA8SGVhZD5cbiAgICAgICAgICA8dGl0bGU+e3NpdGUudGl0bGV9PC90aXRsZT5cbiAgICAgICAgICA8c2NyaXB0IHNyYz1cImh0dHBzOi8vY29kZS5qcXVlcnkuY29tL2pxdWVyeS0zLjQuMS5zbGltLm1pbi5qc1wiIGludGVncml0eT1cInNoYTM4NC1KNnFhNDg0OWJsRTIrcG9UNFdueUtodjV2WkY1U3JQbzBpRWp3QnZLVTdpbUdGQVYwd3dqMXlZZm9SU0pvWituXCIgY3Jvc3NPcmlnaW49XCJhbm9ueW1vdXNcIj48L3NjcmlwdD5cbiAgICAgICAgICA8c2NyaXB0IHNyYz1cImh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9ucG0vcG9wcGVyLmpzQDEuMTYuMC9kaXN0L3VtZC9wb3BwZXIubWluLmpzXCIgaW50ZWdyaXR5PVwic2hhMzg0LVE2RTlSSHZiSXlaRkpvZnQrMm1KYkhhRVdsZGx2STlJT1l5NW4zelY5enpUdG1JM1Vrc2RRUlZ2b3hNZm9vQW9cIiBjcm9zc09yaWdpbj1cImFub255bW91c1wiPjwvc2NyaXB0PlxuXG4gICAgICAgICAgPGxpbmsgcmVsPVwic3R5bGVzaGVldFwiIGhyZWY9XCJodHRwczovL3N0YWNrcGF0aC5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC80LjQuMS9jc3MvYm9vdHN0cmFwLm1pbi5jc3NcIiBpbnRlZ3JpdHk9XCJzaGEzODQtVmtvbzh4NENHc08zK0hoeHY4VC9RNVBhWHRrS3R1NnVnNVRPZU5WNmdCaUZlV1BHRk45TXVoT2YyM1E5SWZqaFwiIGNyb3NzT3JpZ2luPVwiYW5vbnltb3VzXCIvPlxuICAgICAgICAgIDxzY3JpcHQgc3JjPVwiaHR0cHM6Ly9zdGFja3BhdGguYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvNC40LjEvanMvYm9vdHN0cmFwLm1pbi5qc1wiIGludGVncml0eT1cInNoYTM4NC13ZlNERjJFNTBZMkQxdVVkajBPM3VNQkpuanVVRDRJaDdZd2FZZDFpcWZrdGowVW9kOEdDRXhsM09nOGlmd0I2XCIgY3Jvc3NPcmlnaW49XCJhbm9ueW1vdXNcIj48L3NjcmlwdD5cbiAgICAgICAgPC9IZWFkPlxuICAgICAgICA8TmF2YmFyLz5cblxuICAgICAgICA8Tm9TU1I+XG4gICAgICAgICAgPFRocmVlIC8+XG4gICAgICAgIDwvTm9TU1I+XG5cbiAgICAgICAgPFBhZ2VUcmFuc2l0aW9uIHRpbWVvdXQ9ezUwMH0gY2xhc3NOYW1lcz1cInBhZ2UtdHJhbnNpdGlvblwiPlxuICAgICAgICAgIDxDb21wb25lbnQgey4uLnBhZ2VQcm9wc30gey4uLnRoaXMuc3RhdGV9IGtleT17cm91dGVyLnJvdXRlfS8+XG4gICAgICAgIDwvUGFnZVRyYW5zaXRpb24+XG4gICAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXG4gICAgICAgICAgLnBhZ2UtdHJhbnNpdGlvbi1lbnRlciB7XG4gICAgICAgICAgICBvcGFjaXR5OiAwO1xuICAgICAgICAgIH1cbiAgICAgICAgICAucGFnZS10cmFuc2l0aW9uLWVudGVyLWFjdGl2ZSB7XG4gICAgICAgICAgICBvcGFjaXR5OiAxO1xuICAgICAgICAgICAgdHJhbnNpdGlvbjogb3BhY2l0eSAzMDBtcztcbiAgICAgICAgICB9XG4gICAgICAgICAgLnBhZ2UtdHJhbnNpdGlvbi1leGl0IHtcbiAgICAgICAgICAgIG9wYWNpdHk6IDE7XG4gICAgICAgICAgfVxuICAgICAgICAgIC5wYWdlLXRyYW5zaXRpb24tZXhpdC1hY3RpdmUge1xuICAgICAgICAgICAgb3BhY2l0eTogMDtcbiAgICAgICAgICAgIHRyYW5zaXRpb246IG9wYWNpdHkgMzAwbXM7XG4gICAgICAgICAgfVxuICAgICAgICBgfTwvc3R5bGU+XG4gICAgICAgIDxGb290ZXIvPlxuICAgICAgPC9GcmFnbWVudD5cbiAgICApXG4gIH1cbn1cbiJdfQ== */\n/*@ sourceURL=/Users/proulxj/Desktop/Projects/next-static-test/pages/_app.js */"), __jsx(_components_footer__WEBPACK_IMPORTED_MODULE_6__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78
+        lineNumber: 81
       },
       __self: this
     }));
@@ -2884,6 +2870,17 @@ module.exports = require("react-no-ssr");
 
 /***/ }),
 
+/***/ "react-three-fiber":
+/*!************************************!*\
+  !*** external "react-three-fiber" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-three-fiber");
+
+/***/ }),
+
 /***/ "styled-jsx/style":
 /*!***********************************!*\
   !*** external "styled-jsx/style" ***!
@@ -2892,39 +2889,6 @@ module.exports = require("react-no-ssr");
 /***/ (function(module, exports) {
 
 module.exports = require("styled-jsx/style");
-
-/***/ }),
-
-/***/ "three":
-/*!************************!*\
-  !*** external "three" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("three");
-
-/***/ }),
-
-/***/ "three-obj-loader":
-/*!***********************************!*\
-  !*** external "three-obj-loader" ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("three-obj-loader");
-
-/***/ }),
-
-/***/ "three-orbitcontrols":
-/*!**************************************!*\
-  !*** external "three-orbitcontrols" ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("three-orbitcontrols");
 
 /***/ }),
 
